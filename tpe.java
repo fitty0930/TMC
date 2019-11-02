@@ -3,15 +3,17 @@ import java.io.InputStreamReader;
 
 public class tpe{
     public static void main(String[]args){
-        int deltaT;
-        int H=0; // altura columna de agua
+        int tiempoInicial=0;
+        int deltaT=0; // maximo 100.000.000
         int caudalEntrada=0; // caudal entrada E
         int caudalSalida=0; // caudal salida S
         int areaTanque=0; // area transversal del tanque A
         int alturaTanque=0; // altura del tanque
-        int volumenTotalTanque=0; //
-        int volumenAguaTanque=0;
-        int alturaDeAgua=0; // h(t)
+        int alturaAguaTanque=0; // altura del agua en el tanque
+        int volumenTotalTanque=0; // 
+        int volumenAguaTanque=0; // V(t)
+        // int alturaDeAgua=0; // h(t)
+        int alturaDeAguaInicial=0; // h(ti)
 
         // System.out.println("hola");
         try{
@@ -27,6 +29,9 @@ public class tpe{
             System.out.println("introduzca un valor para la altura del tanque");
             alturaTanque= new Integer (entrada.readLine());
 
+            System.out.println("introduzca con que altura de agua comienza el tanque");
+            alturaDeAguaInicial= new Integer (entrada.readLine());
+
             System.out.println("introduzca un caudal de entrada");
             caudalEntrada= new Integer (entrada.readLine());
 
@@ -34,12 +39,27 @@ public class tpe{
             caudalSalida= new Integer (entrada.readLine());
 
             volumenTotalTanque = areaTanque * alturaTanque ;
-            
-            volumenAguaTanque= areaTanque * alturaDeAgua;
+
+            volumenAguaTanque= areaTanque * alturaAguaTanque;
+
+            while((alturaAguaTanque<alturaTanque)&&(tiempoInicial<deltaT)){
+                alturaAguaTanque = alturaDeAguaInicial +(caudalEntrada-caudalSalida)*tiempoInicial/areaTanque;
+                tiempoInicial++;
+                alturaDeAguaInicial=alturaAguaTanque;
+            }
+            System.out.println("el tanque se lleno a los "+ tiempoInicial+" segundos");
+            // reseteo tiempo
+            tiempoInicial=0;
+            while(alturaAguaTanque>0){
+                alturaAguaTanque = alturaDeAguaInicial +(0-caudalSalida)*tiempoInicial/areaTanque;
+                tiempoInicial++;
+                alturaDeAguaInicial=alturaAguaTanque;
+            }
+            System.out.println("el tanque se vació a los "+ tiempoInicial+" segundos");
 
         }
         catch(Exception exc){
-            System.out.println("hola");
+            System.out.println("hubo un error");
         }
     }
 
