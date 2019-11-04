@@ -25,7 +25,7 @@ public class tpeconsigna2b{
             do{
                 System.out.println("introduzca un valor para el intervalo de tiempo");
                 intervaloTiempo= new Double (entrada.readLine());
-            while(intervaloTiempo<=0);
+            }while(intervaloTiempo<=0);
                 
             do{
                 System.out.println("introduzca un valor para el area del tanque");
