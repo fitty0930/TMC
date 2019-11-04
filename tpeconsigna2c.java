@@ -58,7 +58,7 @@ public class tpeconsigna2c{
 
             //llenado
             while((alturaAguaTanque<alturaTanque)&&(tiempoInicial<(intervaloTiempo*maxTiempo))){
-                alturaAguaTanque = alturaDeAguaInicial +(caudalEntrada-(alturaDeAguaInicial*modifCaudal/areaTanque))*tiempoInicial/areaTanque;
+                alturaAguaTanque = alturaDeAguaInicial +(caudalEntrada-(alturaDeAguaInicial*modifCaudal/areaTanque))*intervaloTiempo/areaTanque;
                 tiempoInicial+=intervaloTiempo;
                 alturaDeAguaInicial=alturaAguaTanque; 
                 
@@ -90,7 +90,7 @@ public class tpeconsigna2c{
                     // vaciado
                     
                     while(alturaAguaTanque>0&&(tiempoInicial<(intervaloTiempo*maxTiempo))){
-                        alturaAguaTanque = alturaDeAguaInicial +(0-(alturaDeAguaInicial*modifCaudal/areaTanque))*tiempoInicial/areaTanque;
+                        alturaAguaTanque = alturaDeAguaInicial +(0-(alturaDeAguaInicial*modifCaudal/areaTanque))*intervaloTiempo/areaTanque;
                         tiempoInicial+=intervaloTiempo;
                         alturaDeAguaInicial=alturaAguaTanque;
                     }
@@ -103,7 +103,7 @@ public class tpeconsigna2c{
 
                     if(alturaAguaTanque>0){
                         while(alturaAguaTanque>0&&(tiempoInicial<(intervaloTiempo*maxTiempo))){
-                            alturaAguaTanque = alturaDeAguaInicial +(0-(alturaDeAguaInicial*modifCaudal/areaTanque))*tiempoInicial/areaTanque;
+                            alturaAguaTanque = alturaDeAguaInicial +(0-(alturaDeAguaInicial*modifCaudal/areaTanque))*intervaloTiempo/areaTanque;
                             tiempoInicial+=intervaloTiempo;
                             alturaDeAguaInicial=alturaAguaTanque;
                         }
