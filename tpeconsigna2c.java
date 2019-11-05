@@ -90,7 +90,7 @@ public class tpeconsigna2c{
                 if(alturaAguaTanque == alturaTanque){
                     System.out.println("el tanque se lleno a los "+ tiempoInicial+" segundos");
                     // reseteo tiempo
-                    tiempoInicial=0;
+                    // tiempoInicial=0;
                     // vaciado
                     
                     while(alturaAguaTanque>0 &&(tiempoInicial<(intervaloTiempo*maxTiempo))){
@@ -109,7 +109,7 @@ public class tpeconsigna2c{
                     volumenAguaTanque= areaTanque * alturaAguaTanque;
                     System.out.println("su tanque no se lleno, solo alcanzó los "+volumenAguaTanque+" m3");
                     // vaciado
-                    tiempoInicial=0;
+                    // tiempoInicial=0;
                     if(alturaAguaTanque>0){
                         while(alturaAguaTanque>0 &&(tiempoInicial<(intervaloTiempo*maxTiempo))){
                             alturaAguaTanque = alturaDeAguaInicial +(0-(alturaDeAguaInicial*modifCaudal/areaTanque))*intervaloTiempo/areaTanque;
