@@ -48,7 +48,7 @@ public class tpeconsigna2c{
             caudalEntrada= new Double (entrada.readLine());
 
             System.out.println("introduzca un modif de caudal de salida");
-            System.out.println("el caudal de salida final sera columna de agua*modif/area");
+            System.out.println("el caudal de salida final sera columna_de_agua*modif/area");
             modifCaudal= new Double (entrada.readLine());
 
             volumenTotalTanque = areaTanque * alturaTanque ;
@@ -88,11 +88,14 @@ public class tpeconsigna2c{
                     // reseteo tiempo
                     tiempoInicial=0;
                     // vaciado
-                    
-                    while(alturaAguaTanque>0&&(tiempoInicial<(intervaloTiempo*maxTiempo))){
-                        alturaAguaTanque = alturaDeAguaInicial +(0-(alturaDeAguaInicial*modifCaudal/areaTanque))*intervaloTiempo/areaTanque;
+                    System.out.println("la altura de agua inicial sera"+alturaDeAguaInicial);
+                    System.out.println("la altura de agua tanque sera"+alturaAguaTanque);
+                    while(alturaAguaTanque>0){
+                        alturaAguaTanque = alturaDeAguaInicial +(0-(alturaDeAguaInicial*(modifCaudal/areaTanque)))*intervaloTiempo/areaTanque;
                         tiempoInicial+=intervaloTiempo;
+                        // System.out.println("la altura de agua tanque sera"+alturaAguaTanque);
                         alturaDeAguaInicial=alturaAguaTanque;
+                        // if (alturaAguaTanque<0.00000001){alturaAguaTanque=0;} // para considerar vacio
                     }
                     System.out.println("el tanque se vació a los "+ tiempoInicial+" segundos");
                 }
@@ -100,12 +103,14 @@ public class tpeconsigna2c{
                     // System.out.println(alturaDeAguaInicial);
                     volumenAguaTanque= areaTanque * alturaAguaTanque;
                     System.out.println("su tanque no se lleno, solo alcanzó los "+volumenAguaTanque+" m3");
-
+                    // vaciado
+                    tiempoInicial=0;
                     if(alturaAguaTanque>0){
-                        while(alturaAguaTanque>0&&(tiempoInicial<(intervaloTiempo*maxTiempo))){
+                        while(alturaAguaTanque>0){
                             alturaAguaTanque = alturaDeAguaInicial +(0-(alturaDeAguaInicial*modifCaudal/areaTanque))*intervaloTiempo/areaTanque;
                             tiempoInicial+=intervaloTiempo;
                             alturaDeAguaInicial=alturaAguaTanque;
+                            // if (alturaAguaTanque<0.00000001){alturaAguaTanque=0;} // para considerar vacio
                         }
                         System.out.println("el tanque se vació a los "+ tiempoInicial+" segundos");
                     }

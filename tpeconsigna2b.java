@@ -46,7 +46,7 @@ public class tpeconsigna2b{
             caudalEntrada= new Double (entrada.readLine());
 
             System.out.println("introduzca un modif de caudal de salida");
-            System.out.println("el caudal de salida final sera columna de agua*modif/area");
+            System.out.println("el caudal de salida final sera modif*t^2");
             modifCaudal= new Double (entrada.readLine());
 
             volumenTotalTanque = areaTanque * alturaTanque ;
@@ -58,6 +58,7 @@ public class tpeconsigna2b{
             while((alturaAguaTanque<alturaTanque)&&(tiempoInicial<(intervaloTiempo*maxTiempo))){
                 alturaAguaTanque = alturaDeAguaInicial +(caudalEntrada-(modifCaudal*tiempoInicial*tiempoInicial))*intervaloTiempo/areaTanque;
                 tiempoInicial+=intervaloTiempo;
+                // System.out.println(tiempoInicial);
                 alturaDeAguaInicial=alturaAguaTanque; 
                 
                 // informador c/2
@@ -87,7 +88,7 @@ public class tpeconsigna2b{
                     tiempoInicial=0;
                     // vaciado
                     
-                    while(alturaAguaTanque>0&&(tiempoInicial<(intervaloTiempo*maxTiempo))){
+                    while(alturaAguaTanque>0){
                         alturaAguaTanque = alturaDeAguaInicial +(0-(modifCaudal*tiempoInicial*tiempoInicial))*intervaloTiempo/areaTanque;
                         tiempoInicial+=intervaloTiempo;
                         alturaDeAguaInicial=alturaAguaTanque;
@@ -98,9 +99,11 @@ public class tpeconsigna2b{
                     // System.out.println(alturaDeAguaInicial);
                     volumenAguaTanque= areaTanque * alturaAguaTanque;
                     System.out.println("su tanque no se lleno, solo alcanzó los "+volumenAguaTanque+" m3");
-
+                    tiempoInicial=0;
+                    // vaciado
+                    
                     if(alturaAguaTanque>0){
-                        while(alturaAguaTanque>0&&(tiempoInicial<(intervaloTiempo*maxTiempo))){
+                        while(alturaAguaTanque>0){
                             alturaAguaTanque = alturaDeAguaInicial +(0-(modifCaudal*tiempoInicial*tiempoInicial))*intervaloTiempo/areaTanque;
                             tiempoInicial+=intervaloTiempo;
                             alturaDeAguaInicial=alturaAguaTanque;
