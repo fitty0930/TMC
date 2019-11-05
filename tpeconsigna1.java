@@ -85,12 +85,14 @@ public class tpeconsigna1{
                     tiempoInicial=0;
                     // vaciado
                     
-                    while(alturaAguaTanque>0){
+                    while(alturaAguaTanque>0 &&(tiempoInicial<(intervaloTiempo*maxTiempo))){
                         alturaAguaTanque = alturaDeAguaInicial +(0-caudalSalida)*intervaloTiempo/areaTanque;
                         tiempoInicial+=intervaloTiempo;
                         alturaDeAguaInicial=alturaAguaTanque;
                     }
-                    System.out.println("el tanque se vació a los "+ tiempoInicial+" segundos");
+                    if(alturaAguaTanque<=0){
+                    System.out.println("el tanque se vació a los "+ tiempoInicial+" segundos");}
+                    else{System.out.println("se alcanzó la simulación máxima y su tanque no se vació por completo");}
                 }
                 else if (alturaAguaTanque<alturaTanque){
                     // System.out.println(alturaDeAguaInicial);
@@ -99,12 +101,14 @@ public class tpeconsigna1{
                     // vaciado
                     tiempoInicial=0;
                     if(alturaAguaTanque>0){
-                        while(alturaAguaTanque>0){
+                        while(alturaAguaTanque>0 &&(tiempoInicial<(intervaloTiempo*maxTiempo))){
                             alturaAguaTanque = alturaDeAguaInicial +(0-caudalSalida)*intervaloTiempo/areaTanque;
                             tiempoInicial+=intervaloTiempo;
                             alturaDeAguaInicial=alturaAguaTanque;
                         }
-                        System.out.println("el tanque se vació a los "+ tiempoInicial+" segundos");
+                        if(alturaAguaTanque<=0){
+                        System.out.println("el tanque se vació a los "+ tiempoInicial+" segundos");}
+                        else{System.out.println("se alcanzó la simulación máxima y su tanque no se vació por completo");}
                     }
 
                 }

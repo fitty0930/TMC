@@ -88,16 +88,17 @@ public class tpeconsigna2c{
                     // reseteo tiempo
                     tiempoInicial=0;
                     // vaciado
-                    System.out.println("la altura de agua inicial sera"+alturaDeAguaInicial);
-                    System.out.println("la altura de agua tanque sera"+alturaAguaTanque);
-                    while(alturaAguaTanque>0){
+                    
+                    while(alturaAguaTanque>0 &&(tiempoInicial<(intervaloTiempo*maxTiempo))){
                         alturaAguaTanque = alturaDeAguaInicial +(0-(alturaDeAguaInicial*(modifCaudal/areaTanque)))*intervaloTiempo/areaTanque;
                         tiempoInicial+=intervaloTiempo;
                         // System.out.println("la altura de agua tanque sera"+alturaAguaTanque);
                         alturaDeAguaInicial=alturaAguaTanque;
                         // if (alturaAguaTanque<0.00000001){alturaAguaTanque=0;} // para considerar vacio
                     }
-                    System.out.println("el tanque se vació a los "+ tiempoInicial+" segundos");
+                    if(alturaAguaTanque<=0){
+                    System.out.println("el tanque se vació a los "+ tiempoInicial+" segundos");}
+                    else{System.out.println("se alcanzó la simulación máxima y su tanque no se vació por completo");}
                 }
                 else if (alturaAguaTanque<alturaTanque){
                     // System.out.println(alturaDeAguaInicial);
@@ -106,13 +107,15 @@ public class tpeconsigna2c{
                     // vaciado
                     tiempoInicial=0;
                     if(alturaAguaTanque>0){
-                        while(alturaAguaTanque>0){
+                        while(alturaAguaTanque>0 &&(tiempoInicial<(intervaloTiempo*maxTiempo))){
                             alturaAguaTanque = alturaDeAguaInicial +(0-(alturaDeAguaInicial*modifCaudal/areaTanque))*intervaloTiempo/areaTanque;
                             tiempoInicial+=intervaloTiempo;
                             alturaDeAguaInicial=alturaAguaTanque;
                             // if (alturaAguaTanque<0.00000001){alturaAguaTanque=0;} // para considerar vacio
                         }
-                        System.out.println("el tanque se vació a los "+ tiempoInicial+" segundos");
+                        if(alturaAguaTanque<=0){
+                        System.out.println("el tanque se vació a los "+ tiempoInicial+" segundos");}
+                        else{System.out.println("se alcanzó la simulación máxima y su tanque no se vació por completo");}
                     }
 
                 }
