@@ -41,12 +41,16 @@ public class tpeconsigna1{
             alturaDeAguaInicial= new Double (entrada.readLine());
             }while((alturaDeAguaInicial<0)||(alturaDeAguaInicial>alturaTanque));
 
+            do{
             System.out.println("introduzca un caudal de entrada");
             caudalEntrada= new Double (entrada.readLine());
+            }while(caudalEntrada<0);
 
+            do{
             System.out.println("introduzca un caudal de salida");
             caudalSalida= new Double (entrada.readLine());
-
+            }while(caudalSalida<0);
+            
             volumenTotalTanque = areaTanque * alturaTanque ;
             System.out.println("su tanque tiene un volumen total de: "+volumenTotalTanque);
 
