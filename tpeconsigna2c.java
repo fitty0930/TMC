@@ -19,6 +19,7 @@ public class tpeconsigna2c{
         double alturaDeAguaInicial=0; // h(ti)
         boolean pasaMitad=false;
         double modifCaudal=0;
+        boolean alturaNula=false;
         
 
         try{
@@ -78,6 +79,14 @@ public class tpeconsigna2c{
                             // tanque lleno
                             alturaAguaTanque = alturaTanque;
                             alturaDeAguaInicial=alturaAguaTanque; 
+                        };
+
+                        if (alturaAguaTanque < 0 && alturaNula==false){
+                            // tanque vacio
+                            System.out.println("tiempo que se autovacia "+tiempoInicial);
+                            alturaNula=true;
+                            alturaAguaTanque = 0;
+                            alturaDeAguaInicial=0; 
                         };
 
                         if (alturaAguaTanque < 0){

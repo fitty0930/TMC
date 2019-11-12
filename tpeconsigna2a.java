@@ -16,6 +16,7 @@ public class tpeconsigna2a{
         // int alturaDeAgua=0; // h(t)
         double alturaDeAguaInicial=0; // h(ti)
         boolean pasaMitad=false;
+        boolean alturaNula=false;
         double modifCaudal=0;
         
 
@@ -63,7 +64,7 @@ public class tpeconsigna2a{
                 alturaAguaTanque = alturaDeAguaInicial +(caudalEntrada-(modifCaudal*tiempoInicial))*intervaloTiempo/areaTanque;
                 tiempoInicial+=intervaloTiempo;
                 alturaDeAguaInicial=alturaAguaTanque;
-                // System.out.println(tiempoInicial); 
+                // System.out.println(alturaAguaTanque); 
                 
                 // informador c/2
                         if (alturaAguaTanque >= (alturaTanque/2) && pasaMitad==false){
@@ -77,6 +78,14 @@ public class tpeconsigna2a{
                             // tanque lleno
                             alturaAguaTanque = alturaTanque;
                             alturaDeAguaInicial=alturaAguaTanque; 
+                        };
+
+                        if (alturaAguaTanque < 0 && alturaNula==false){
+                            // tanque vacio
+                            System.out.println("tiempo que se autovacia "+tiempoInicial);
+                            alturaNula=true;
+                            alturaAguaTanque = 0;
+                            alturaDeAguaInicial=0; 
                         };
 
                         if (alturaAguaTanque < 0){
@@ -105,6 +114,7 @@ public class tpeconsigna2a{
                     // System.out.println(alturaDeAguaInicial);
                     volumenAguaTanque= areaTanque * alturaAguaTanque;
                     System.out.println("su tanque no se lleno, solo alcanzó los "+volumenAguaTanque+" m3");
+                    System.out.println("tiempo:" +tiempoInicial);
                     // tiempoInicial=0;
                     // vaciado
                     
