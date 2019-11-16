@@ -60,19 +60,20 @@ public class tpepregunta2c {
 
             volumenAguaTanque = areaTanque * alturaAguaTanque;
             alturaAguaTanque=alturaDeAguaInicial; // VER
+            System.out.println("altura agua tanque " + alturaAguaTanque + "mts");
+            System.out.println("altura " + alturaDeAguaInicial + "mts");
             // llenado
             while ((alturaAguaTanque < alturaTanque) && (tiempoInicial < (intervaloTiempo * maxTiempo))) {
 
                 tiempoInicial += intervaloTiempo;
-                alturaAguaTanque = alturaDeAguaInicial
-                        + (caudalEntrada - (alturaDeAguaInicial * modifCaudal / areaTanque)) * intervaloTiempo
-                                / areaTanque;
+                alturaAguaTanque = alturaDeAguaInicial + (caudalEntrada - (alturaDeAguaInicial * modifCaudal / areaTanque)) * intervaloTiempo/ areaTanque;
 
                 alturaDeAguaInicial = alturaAguaTanque;
 
                 // informador c/2
                 if (alturaAguaTanque >= (alturaTanque / 2) && pasaMitad == false) {
                     System.out.println("se supero la mitad del tanque");
+                    // System.out.println("altura agua tanque " + alturaAguaTanque + "mts");
                     System.out.println("altura " + alturaDeAguaInicial + "mts");
                     System.out.println("a los " + tiempoInicial + " segundos");
                     pasaMitad = true;
