@@ -1,6 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
+// todos funcan
 public class tpepregunta2a {
     public static void main(String[] args) {
         double tiempoInicial = 0;
@@ -57,7 +57,7 @@ public class tpepregunta2a {
             System.out.println("su tanque tiene un volumen total de: " + volumenTotalTanque);
 
             volumenAguaTanque = areaTanque * alturaAguaTanque;
-
+            alturaAguaTanque=alturaDeAguaInicial; // VER
             // llenado
             while ((alturaAguaTanque < alturaTanque) && (tiempoInicial < (intervaloTiempo * maxTiempo))) {
 

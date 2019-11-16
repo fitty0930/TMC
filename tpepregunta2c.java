@@ -59,7 +59,7 @@ public class tpepregunta2c {
             System.out.println("su tanque tiene un volumen total de: " + volumenTotalTanque);
 
             volumenAguaTanque = areaTanque * alturaAguaTanque;
-
+            alturaAguaTanque=alturaDeAguaInicial; // VER
             // llenado
             while ((alturaAguaTanque < alturaTanque) && (tiempoInicial < (intervaloTiempo * maxTiempo))) {
 
