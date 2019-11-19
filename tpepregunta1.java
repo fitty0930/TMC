@@ -110,6 +110,8 @@ public class tpepregunta1 {
                 }
                 if (alturaAguaTanque <= 0) {
                     System.out.println("el tanque se vació a los " + tiempoInicial + " segundos");
+                    alturaAguaTanque=0;
+                    alturaDeAguaInicial=alturaAguaTanque;
                 } else {
                     System.out.println("se alcanzó la simulación máxima y su tanque no se vació por completo");
                 }
